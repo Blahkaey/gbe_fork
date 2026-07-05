@@ -318,7 +318,7 @@ bool Steam_GameServer::BLoggedOn()
 {
     PRINT_DEBUG_ENTRY();
     std::lock_guard<std::recursive_mutex> lock(global_mutex);
-    return logged_in;
+    return logged_in || call_servers_connected;
 }
 
 bool Steam_GameServer::BSecure()
@@ -338,7 +338,7 @@ CSteamID Steam_GameServer::GetSteamID()
 {
     PRINT_DEBUG_ENTRY();
     std::lock_guard<std::recursive_mutex> lock(global_mutex);
-    if (!logged_in) return CSteamID(0, 0, k_EUniversePublic, k_EAccountTypeAnonGameServer); // blank anon server id
+    if (!logged_in && !call_servers_connected) return CSteamID(0, 0, k_EUniversePublic, k_EAccountTypeAnonGameServer); // blank anon server id
     return settings->get_local_steam_id();
 }
 
