@@ -16,6 +16,7 @@ env:
 
   PACKAGE_BASE_DIR: "build/package/win"
   THIRD_PARTY_BASE_DIR: "third-party"
+  THIRD_PARTY_REPOSITORY: "Detanup01/gbe_fork"
 
   # https://docs.github.com/en/actions/reference/runners/github-hosted-runners#standard-github-hosted-runners-for-public-repositories
   MAX_PARALLEL_JOBS: 4
